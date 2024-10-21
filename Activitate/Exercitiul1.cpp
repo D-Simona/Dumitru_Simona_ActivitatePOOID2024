@@ -3,6 +3,7 @@
 
 using namespace std;
 
+//exercitiu facem soft - Bogdan Iancu
 class TelefonMobil {
 public:
 	int nivelBaterie;
