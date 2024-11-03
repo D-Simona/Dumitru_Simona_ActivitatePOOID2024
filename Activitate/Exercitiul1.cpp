@@ -7,6 +7,7 @@ using namespace std;
 class TelefonMobil {
 public:
 	int nivelBaterie;
+	int id;
 
 	void incarca(int nivelIncarcare) {
 		nivelBaterie += nivelIncarcare;
