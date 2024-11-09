@@ -7,8 +7,7 @@ using namespace std;
 class TelefonMobil {
 public:
 	int nivelBaterie;
-	int id;
-
+	
 	TelefonMobil() //contructor
 	{
 		producator = "";
@@ -28,6 +27,27 @@ public:
 		nivelBaterie = _nivelBaterie;
 	}
 
+	TelefonMobil(const TelefonMobil& t) //constructorul de copiere
+	{
+		producator = t.producator;
+		model = t.model;
+		nivelBaterie = t.nivelBaterie - 1;
+	}
+
+	~TelefonMobil() //destructorul
+	{
+		cout << "destructorul" << endl;
+	}
+
+	string getProducator() //getter
+	{
+		return producator;
+	}
+	
+	void setProducator(string _producator) //setter
+	{
+		producator = _producator;
+	}
 	void afisare() //functie de afisare
 	{
 		cout << "Producator: " << this->producator << endl;
@@ -45,6 +65,12 @@ private:
 	string model;
 };
 
+TelefonMobil incrementeazaNivelBaterie(TelefonMobil t)
+{
+	t.nivelBaterie++;
+	return t;
+}
+
 int main() {
 	TelefonMobil telefonPersonal;
 	TelefonMobil* pTelefon = new TelefonMobil(); 
@@ -60,11 +86,19 @@ int main() {
 	pTelefon = nullptr;
 
 	TelefonMobil telefon3(25);
-	TelefonMobil telefon3 = 30;
+	TelefonMobil telefon4 = 30;
+
+	TelefonMobil telefon5(telefon4);
+	TelefonMobil telefon6 = telefon5;
+
+	incrementeazaNivelBaterie(telefon6);
 
 	telefonPersonal.nivelBaterie = 20;
 	telefonPersonal.incarca(50);
 
 	cout << telefonPersonal.nivelBaterie << endl;
+	cout << telefonDeServiciu.getProducator() << endl;
+	telefonDeServiciu.setProducator("Motorola");
+	telefonDeServiciu.afisare();
 
 }
