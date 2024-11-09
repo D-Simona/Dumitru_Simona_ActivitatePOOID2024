@@ -17,21 +17,21 @@ public:
 
 	TelefonMobil(string _producator, string _model) //constructor cu parametri
 	{
-		producator = _producator;
-		model = _model;
-		nivelBaterie = 0;
+		this->producator = producator;
+		this->model = model;
+		this->nivelBaterie = 0;
 	}
 
 	TelefonMobil(int _nivelBaterie) //constrructor cu un singur parametru
 	{
-		nivelBaterie = _nivelBaterie;
+		this->nivelBaterie = nivelBaterie;
 	}
 
 	TelefonMobil(const TelefonMobil& t) //constructorul de copiere
 	{
-		producator = t.producator;
-		model = t.model;
-		nivelBaterie = t.nivelBaterie - 1;
+		this->producator = t.producator;
+		this->model = t.model;
+		this->nivelBaterie = t.nivelBaterie - 1;
 	}
 
 	~TelefonMobil() //destructorul
@@ -46,7 +46,7 @@ public:
 	
 	void setProducator(string _producator) //setter
 	{
-		producator = _producator;
+		this->producator = producator;
 	}
 	void afisare() //functie de afisare
 	{
@@ -57,7 +57,7 @@ public:
 
 	void incarca(int nivelIncarcare)
 	{
-		nivelBaterie += nivelIncarcare;
+		this->nivelBaterie += nivelIncarcare;
 	}
 protected:
 	string producator;
